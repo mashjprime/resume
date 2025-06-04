@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Roboto+Slab:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #2c3e50;
+            --text-color: #333;
+            --light-grey: #f4f4f4;
+            --sidebar-bg: #f9f9f9;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-grey);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        header h1 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 2.8em;
+            margin-bottom: 5px;
+            color: var(--secondary-color);
+        }
+
+        header .tagline {
+            font-size: 1.1em;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .contact-info a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .profile-pic-container {
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 20px; /* Added to move the picture down */
+        }
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .resume-body {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .main-content {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--sidebar-bg);
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.6em;
+            color: var(--primary-color);
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        h2 .fas {
+            margin-right: 10px;
+            font-size: 0.9em;
+        }
+
+        .sidebar h2 {
+            font-size: 1.4em;
+        }
+
+        h3 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.3em;
+            margin-bottom: 3px;
+            color: var(--text-color);
+        }
+
+        .job .date, .education-item .date {
+            font-style: italic;
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 8px;
+        }
+
+        .job ul {
+            list-style: none;
+            padding-left: 5px;
+            margin-top: 5px;
+        }
+
+        .job ul li, .skills-list li, .languages-list li {
+            margin-bottom: 8px;
+            font-size: 0.95em;
+            position: relative;
+            padding-left: 20px;
+        }
+        .job ul li::before {
+            content: '\f054';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 1px;
+        }
+
+        .skills-category {
+            margin-bottom: 15px;
+        }
+
+        .skills-category h4 {
+            font-family: 'Roboto Slab', serif;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+            color: #444;
+            display: flex;
+            align-items: center;
+        }
+        .skills-category h4 .fas {
+             margin-right: 8px;
+             font-size: 0.9em;
+             color: var(--primary-color);
+        }
+
+        .skills-list, .languages-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skills-list li::before, .languages-list li::before {
+            content: '\f105';
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: var(--primary-color);
+            margin-right: 8px;
+            font-size: 0.9em;
+        }
+        .languages-list li::before{
+             content: '\f121';
+        }
+
+        .education-item {
+            margin-bottom: 15px;
+        }
+
+        .education-item p {
+            margin: 3px 0;
+        }
+
+        section, .job, .skills-category, .education-item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .job:nth-child(2), .skills-category:nth-child(2), .education-item:nth-child(2) { animation-delay: 0.1s; }
+        .job:nth-child(3), .skills-category:nth-child(3) { animation-delay: 0.2s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            .resume-body {
+                flex-direction: column;
+            }
+            .main-content, .sidebar {
+                flex: auto;
+            }
+            .sidebar {
+                margin-top: 30px;
+            }
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+        } 
